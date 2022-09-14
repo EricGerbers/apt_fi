@@ -1,26 +1,67 @@
-import { AptosClient } from 'aptos';
-import React, { useState } from 'react'
+import { AptosClient, FaucetClient, CoinClient } from 'aptos';
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { useAptos } from '../../hooks/useAptos';
+import { userLogin, userUpdate } from '../../store/reducer/user';
+
 // Create an AptosClient to interact with devnet.
-const client = new AptosClient('https://fullnode.devnet.aptoslabs.com/v1');
-const Home = () => {
-  // ...
 
-  // Use the AptosClient to retrieve details about the account.
-  const [account, setAccount] = useState(null);
-  const [address, setAddress] = useState('')
-  React.useEffect(() => {
-    // client.getAccount('0x7974c28245900946511b49e553f41a1b7cf0df748c86e5790938ccfe1f25bf93').then(setAccount);
-    // window.aptos.account().then((data) => console.log('aaa', data));
-  }, []);
+const NODE_URL = process.env.APTOS_NODE_URL || "https://fullnode.devnet.aptoslabs.com";
+const FAUCET_URL = process.env.APTOS_FAUCET_URL || "https://faucet.devnet.aptoslabs.com";
+const APTOS_COIN = "0x1::aptos_coin::AptosCoin";
+const client = new AptosClient(NODE_URL);
+const faucetClient = new FaucetClient(NODE_URL, FAUCET_URL, null);
+const cointClient = new CoinClient(client)
+const Home = (props) => {
 
-  console.log('aa',  window.aptos)
+  const {address, balance, disconnect, connect} = useAptos()
+  // console.log('st', stateAptos)
+  const state = useSelector(state => state.user)
+  // const dispatch = useDispatch()
+  // const initData = async () => {
+  //   try {
+  //     console.log('check conencted', window.aptos)    
+  //     const check = await window.aptos.isConnected()
+  //     console.log('check', check)
+  //     dispatch(userLogin({isConnected: true}))
+  //     const data = await window.aptos.account()
+  //     if(data){
+  //       dispatch(userUpdate({address: data.address}))
+  //       const typeTag = `0x1::coin::CoinStore<${APTOS_COIN}>`;
+  //       const resources = await client.getAccountResources(data.address)
+  //       const account = resources.find(item => item.type === typeTag)
+  //       // const test = await faucetClient
+  //       // const checkBalance  = await cointClient.checkBalance(data)
+  //       console.log('info account', account)
+  //       // console.log('checkBalance', checkBalance)
+  //     }
+  //   } catch (error) {
+  //     console.log('error', error)
+  //   }
+  // }
 
+  
+  // console.log('user', state)
+  console.log('stateAptos', address)
   return (
     <div className="App">
-      <p><code>{ address }</code></p>
-      {/* <p><code>{ account?.sequence_number }</code></p> */}
+      {
+        address
+      }
+      <p>Balance : {balance}</p>
+      <a href='/other'>other</a>
+      <div className='' onClick={disconnect}>Disc</div>
+      <div className='' onClick={connect}>Connect</div>
     </div>
   );
 }
+
+const AccountInfo = () => {
+  const stateAptos = useAptos()
+  return (
+    <div>{stateAptos.address}</div>
+  )
+}
+
 
 export default Home

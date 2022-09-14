@@ -1,33 +1,26 @@
 import { useEffect } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import Page from '../components/Page'
-import { addCount } from '../store/count/action'
-import { wrapper } from '../store/store'
-import { serverRenderClock, startClock } from '../store/tick/action'
+import { useSelector } from 'react-redux'
+import { wrapper } from '../store'
+import { userLogin } from '../store/reducer/user'
+
 
 const Other = (props) => {
-  useEffect(() => {
-    const timer = props.startClock()
+  const state = useSelector(state => state.user)
+  console.log('s', state)
+  return (
+    <div>{state.address}</div>
+  )
+}
 
-    return () => {
-      clearInterval(timer)
+export const getServerSideProps = wrapper.getStaticProps(
+  (store) =>
+    async ({ params }) => {
+      // we can set the initial state from here
+      // we are setting to false but you can run your custom logic here
+      // await store.dispatch(setAuthState(false)); 
+      
+      store.dispatch(userLogin({isConnected: true}))
     }
-  }, [props])
+);
 
-  return <Page title="Other Page" linkTo="/" />
-}
-
-export const getServerSideProps = wrapper.getServerSideProps((store) => () => {
-  store.dispatch(serverRenderClock(true))
-  store.dispatch(addCount())
-})
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addCount: bindActionCreators(addCount, dispatch),
-    startClock: bindActionCreators(startClock, dispatch),
-  }
-}
-
-export default connect(null, mapDispatchToProps)(Other)
+export default Other
