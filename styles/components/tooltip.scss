@@ -1,0 +1,13 @@
+.tooltip-container{
+  padding: 8px;
+  z-index: 3060;
+}
+.tooltip-content{
+  background-color: black;
+  border-radius: 8px;
+  color: #fff;
+  min-width: 32px;
+  min-height: 32px;
+  font-size: 14px;
+  padding: 10px;
+}

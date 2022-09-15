@@ -1,5 +1,13 @@
 @import '_variables.scss';
 
+* {
+  outline: none;
+  box-sizing: border-box;
+}
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body{
   font-size: 11px;
   line-height: 1.4;
@@ -18,7 +26,10 @@ body{
   padding: 0px 10rem;
   margin: 0 auto;
   width: 100%;
-  display: flex;  
+  display: flex;
+  @media (max-width: 1200px){
+    padding: 0 32px;
+  }
 }
 .row{
   margin: 0 auto;
@@ -26,12 +37,12 @@ body{
   width: 100%;
   display: flex;
 }
-* {
-  box-sizing: border-box;
-}
 a{
   text-decoration: none;
-  color: $text-body
+  color: $text-body;
+  &:hover{
+    color: $text-primary;
+  }
 }
 button{
   font-weight: 500;
@@ -41,6 +52,7 @@ button{
   appearance: none;
   border: none;
   cursor: pointer;
+  background-color: transparent;
 }
 .button-primary{
   background-color: $text-primary;
@@ -53,6 +65,30 @@ button{
   background-color: rgb(238, 238, 238);
   color: $text-primary
 }
+.button-ternary{
+  border: 1px solid $text-primary;
+  color: $text-primary;
+  
+}
 p{
   margin: 0;
+}
+.text-green-900{
+  color: #34C759;
+}
+.text-red-900{
+  color: #FA0101
+}
+.text-orange-900{
+  color: #FF9500;
+}
+.text-blue-900{
+  color: #32ADE6;
+}
+.items-center{
+  align-items: center;
+}
+.btn-connect-account{
+  display: flex;
+  gap: 10px;
 }

@@ -4,7 +4,6 @@ import { splitAddress } from "../utils/function"
 
 export const ButtonConnect = () => {
   const {connect, connected, address, balance, disconnect} = useAptos()
-  console.log('aa', address, connected)
   if(connected){
     return (
       <Button onClick={disconnect} className='button-secondary btn-info-account'>
@@ -14,6 +13,6 @@ export const ButtonConnect = () => {
     )
   }
   return (
-    <Button onClick={connect} className='button-primary'>Connect</Button>
+    <Button onClick={connect} className='button-primary btn-connect-account'><i class="bi bi-wallet-fill"></i> Connect Wallet</Button>
   )
 }

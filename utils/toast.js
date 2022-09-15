@@ -16,33 +16,31 @@ const defaultConfig = {
 const renderMessage = (message) => (props) => {
   const { title, description: desc, action, icon } = message
   return (
-    <div className={cx('flex gap-2', !desc && 'items-center')}>
+    <div className={cx('toast-message', !desc && 'items-center')}>
       {icon && (
-        <div className='toast-icon w-[1.125rem] h-[1.125rem] shrink-0'>
+        <div className='toast-icon'>
           {icon}
         </div>
       )}
-      <div className={cx('toast-body mr-2 grow', !desc && 'self-center')}>
+      <div className={cx('toast-body', !desc && 'self-center')}>
         <div
-          className={cx(
-            'title text-[0.875rem] leading-normal font-semibold text-black-800',
-          )}
+          className='toast-title'
         >
           {title}
         </div>
         {desc && (
-          <div className='description text-[0.8125rem] text-black-400'>
+          <div className='toast-description'>
             {typeof desc === 'string'
               ? desc
               : Object.keys(desc).map(k => <div key={k}>{desc[k][0]}</div>)}
           </div>
         )}
-        {action && <div className='action mt-2'>{action}</div>}
+        {action && <div className='toast-action mt-2'>{action}</div>}
       </div>
       <span
-        className='font-icon-close text-black-400 text-body'
+        className='toast-close'
         onClick={props.closeToast}
-      ></span>
+      ><i class="bi bi-x-circle"></i></span>
     </div>
   )
 }

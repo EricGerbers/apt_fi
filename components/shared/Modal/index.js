@@ -25,7 +25,6 @@ export const Modal = ({
   onAnimateComplete,
   overlayZIndex,
   children,
-  type = 'full',
 }) => {
   const modalIdRef = useRef(uniqueId('modal-'))
 
@@ -45,7 +44,7 @@ export const Modal = ({
           id={modalIdRef.current}
           initial={{ top: '100vh', overflowY: 'hidden' }}
           animate={{
-            top: type === 'semi' ? '3.25rem' : 0,
+            top: 0,
             transitionEnd: { overflowY: 'auto' },
           }}
           exit={{ top: '100vh', overflowY: 'hidden' }}
@@ -53,15 +52,14 @@ export const Modal = ({
           onAnimationComplete={onAnimateComplete}
           onClick={handleClose}
           className={cx(
-            'p-4 fixed top-0 left-0 right-0 bottom-0 cursor-pointer w-screen max-w-screen max-h-screen z-modal',
-            'flex flex-wrap justify-center items-center bg-transparent overflow-x-hidden',
+            'modal-container',
             wrapperClassName,
           )}
         >
           <div
             className={cx(
-              'p-4 bg-white min-h-[5rem] cursor-auto',
-              rounded !== false && 'rounded-lg',
+              'modal-content',
+              rounded !== false && 'rounded',
               className,
             )}
           >

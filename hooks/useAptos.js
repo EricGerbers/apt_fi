@@ -8,6 +8,15 @@ const FAUCET_URL = process.env.APTOS_FAUCET_URL || "https://faucet.devnet.aptosl
 const APTOS_COIN = "0x1::aptos_coin::AptosCoin";
 const typeTag = `0x1::coin::CoinStore<${APTOS_COIN}>`;
 
+
+// const faucetClient = new FaucetClient(NODE_URL, FAUCET_URL, null);
+      // const cointClient = new CoinClient(client)
+      // const isConnected = await checkConnected()
+      // if(!isConnected){
+      //   return
+      // }   
+
+      
 export const useAptos = () => {  
   const [address, setAddress] = useState(null)
   const [connected, setConnected] = useState(false)
@@ -47,10 +56,10 @@ export const useAptos = () => {
       return
     }
     try {
-      await window.aptos.connect()
-      toast.success({ title: 'Login' })
+      await window.aptos.connect()      
+      await initData()
       setConnected(true)
-      initData()
+      toast.success({ title: 'Login' })
     } catch (error) {
       toast.error({ title: error.message, description: error.errors })
       return error
@@ -58,13 +67,7 @@ export const useAptos = () => {
   }
   const initData = async () => {
     try {      
-      
-      // const faucetClient = new FaucetClient(NODE_URL, FAUCET_URL, null);
-      // const cointClient = new CoinClient(client)
-      // const isConnected = await checkConnected()
-      // if(!isConnected){
-      //   return
-      // }            
+                     
       const data = await window.aptos.account()
       const currentBalance = await getBalance(data.address)
       setBalance(currentBalance)

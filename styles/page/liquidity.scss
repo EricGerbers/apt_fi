@@ -1,0 +1,91 @@
+.page-liquid{
+  display: block;
+  .liquid-header{
+    text-align: center;
+    margin-bottom: 40px;
+    h1{
+      margin: 0 0 6px;
+      font-size: 30px;
+    }
+    p{
+      margin: 0;
+      font-size: 16px;
+    }
+  }
+  .liquid-items{
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 30px;
+    padding: 0 60px;
+    .liquid-item{
+      position: relative;      
+      &:hover{
+        .background-card{
+          background: conic-gradient(rgb(86, 242, 255) -0.38deg, rgb(74, 140, 234) 51.89deg, rgb(112, 199, 148) 110.07deg, rgb(255, 227, 54) 170.63deg, rgb(255, 128, 114) 232.5deg, rgb(75, 150, 236) 296.51deg, rgb(86, 242, 255) 359.62deg, rgb(74, 140, 234) 411.89deg);
+          filter: blur(16px);
+          backdrop-filter: blur(16px);
+        }
+      }
+    }
+    .content-item{
+      position: relative;
+      height: 100%;
+      background: rgb(255, 255, 255);
+      border-radius: 20px;
+      margin-bottom: 0px;
+      color: rgb(8, 14, 20);
+      padding: 32px;
+      width: 100%;
+      border-radius: 20px;
+      min-width: 260px;
+    }
+    .background-card{
+      position: absolute;
+      inset: 0;
+    }
+  }
+  .liquid-item{
+    .card-header{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .card-token{
+      padding-left: 50px;
+      display: flex;
+      position: relative;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .card-token-img-left,.card-token-img-right{
+      position: absolute;
+      top: -2px;
+      left: 0;
+    }
+    .card-token-img-right{
+      left: 16px;
+    }
+    .card-price{
+      color: rgb(83, 186, 149);
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .card-price-usd{
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0px;
+      color: rgb(39, 56, 82);
+      margin-bottom: 24px;
+    }
+    .card-bottom{
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+}

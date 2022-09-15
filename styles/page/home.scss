@@ -1,12 +1,16 @@
 @import '../variables.scss';
 
 .home-banner{
-  margin-top: 24px;
+  min-height: calc(100vh - 160px);
   .banner-left{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 32px;
     width: 60%;
+    @media (max-width: 767px){
+      width: 100%;
+    }
   }
   .list-social{
     display: flex;
@@ -24,11 +28,15 @@
       color: #fff;
       padding: 8px;
     }
+    @media (max-width: 767px){
+      gap: 12px
+    }
   }
   .banner-desc{
     display: flex;
     gap: 10px;
     align-items: center;
+    
     h2{
       font-size: 64px;
       font-weight: 700;
@@ -36,12 +44,21 @@
       letter-spacing: -6px;
       color: rgb(40,40,40);
       margin: 0;
+      
     }
     p{
       font-size: 18px;
       color: rgb(121, 121, 121);
       line-height: 180%;
       margin-bottom: 40px;
+    }
+    @media (max-width: 767px){
+      h2{
+        font-size: 40px;
+      }
+      img{
+        display: none;
+      }
     }
   }
   .btn-launch{
@@ -55,6 +72,34 @@
     svg{
       width: 22px;
       height: auto;
+    }
+    @media (max-width: 480px){
+      max-width: 320px;
+      width: 100%;
+    }
+  }
+  .banner-bottom{
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    @media (max-width: 767px){
+      flex-direction: column;
+    }
+    .block-solana{
+      display: flex;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #000;
+    }
+  }
+  .banner-right{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 767px){
+      display: none;
     }
   }
 }

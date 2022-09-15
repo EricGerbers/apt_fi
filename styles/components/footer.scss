@@ -1,0 +1,55 @@
+@import '../variables';
+
+.footer{
+  background-color: #fff;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  box-shadow: rgb(0 0 0 / 30%) 0px 0px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: 1024px){
+    flex-wrap: wrap;
+  }
+  @media (max-width: 640px){    
+    gap: 20px;
+  }
+  .footer-copyright{
+    display: inline-flex;
+    gap: 10px;
+    margin-top: 4px;
+    a{
+      color: $text-primary
+    }
+  }
+  .footer-nav{
+    display: flex;
+    column-gap: 30px;
+    @media (max-width: 1024px){
+      order: 5;
+      flex: 1 1 100%;
+      width: 100%;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    a{
+      font-size: 14px;
+    }
+  }
+  .footer-social{
+    display: flex;
+    align-items: center;
+    gap: 20px;  
+    a{
+      width: 30px;
+      height: 30px;
+      background-color: $text-primary;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      padding: 8px;
+    }
+  }
+}

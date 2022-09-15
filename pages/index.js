@@ -1,5 +1,5 @@
 import { PageTitle } from "../components/PageTitle"
-import { HomeBanner } from "../src/Home/Banner"
+import { HomeBanner } from "../src/home/banner"
 
 const Index = (props) => {
   

@@ -1,0 +1,32 @@
+.modal-overlay{
+  // fixed top-0 right-0 bottom-0 left-0 bg-popup-overlay z-overlay
+  position: fixed;
+  inset: 0;
+  background-color: rgba(3, 10, 27, 0.8);
+  z-index: 3000;
+}
+.modal-container{
+  padding: 16px;
+  position: fixed;
+  inset: 0;
+  cursor: pointer;
+  width: 100vw;
+  max-width: 100vw;
+  max-height: 100vw;
+  z-index: 3050;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  overflow-x: hidden;
+}
+.modal-content{  
+  padding: 16px;
+  background-color: white;
+  min-height: 80px;
+  cursor: auto;
+  &.rounded{
+    border-radius: 8px;
+  }
+}

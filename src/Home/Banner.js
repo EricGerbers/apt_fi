@@ -31,7 +31,14 @@ export const HomeBanner = () => {
             <LogoShort />
             Launch Aldrin
           </Button>
+          <div className="block-solana">
+            <img src='./images/solana.svg' />
+            <p>Built on Solana</p>
+          </div>
         </div>
+      </div>
+      <div className="banner-right">
+        <img src='./images/img_move.png' />
       </div>
     </div>
   )

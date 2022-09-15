@@ -14,7 +14,7 @@ export const Overlay = forwardRef((props, ref) => {
       ref={ref}
       style={{ ...props.style, zIndex }}
       className={cx(
-        'fixed top-0 right-0 bottom-0 left-0 bg-popup-overlay z-overlay',
+        'modal-overlay',
         className,
       )}
     >
