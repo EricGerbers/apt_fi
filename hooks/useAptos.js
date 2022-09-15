@@ -16,6 +16,7 @@ export const useAptos = () => {
   const firstCheckConnect = async () => {
     const result = await window.aptos.isConnected()
     if(result){
+      setConnected(true)
       initData()
     }
   }
@@ -33,6 +34,7 @@ export const useAptos = () => {
   const disconnect = async () => {    
     try {
       await window.aptos.disconnect()
+      toast.success({ title: 'Logout' })
       resetInfo()
     } catch (error) {
       toast.error({ title: error.message, description: error.errors })
@@ -46,6 +48,7 @@ export const useAptos = () => {
     }
     try {
       await window.aptos.connect()
+      toast.success({ title: 'Login' })
       setConnected(true)
       initData()
     } catch (error) {

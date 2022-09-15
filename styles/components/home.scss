@@ -1,0 +1,60 @@
+@import '../variables.scss';
+
+.home-banner{
+  margin-top: 24px;
+  .banner-left{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 60%;
+  }
+  .list-social{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 30px;
+    a{
+      width: 30px;
+      height: 30px;
+      background-color: $text-primary;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      padding: 8px;
+    }
+  }
+  .banner-desc{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    h2{
+      font-size: 64px;
+      font-weight: 700;
+      font-family: Syncopate;
+      letter-spacing: -6px;
+      color: rgb(40,40,40);
+      margin: 0;
+    }
+    p{
+      font-size: 18px;
+      color: rgb(121, 121, 121);
+      line-height: 180%;
+      margin-bottom: 40px;
+    }
+  }
+  .btn-launch{
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    width: 320px;
+    gap: 10px;
+    font-size: 20px;
+    svg{
+      width: 22px;
+      height: auto;
+    }
+  }
+}

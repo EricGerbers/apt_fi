@@ -1,0 +1,36 @@
+@import '_variables.scss';
+
+.header{
+  margin-top: 3rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav{
+  display: flex;
+  gap: 60px;
+  justify-items: center;
+  .nav-item{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: rgb(40, 40, 40);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    &:hover{
+      color: $text-primary;
+      svg{
+        color: $text-primary;
+      }
+    }
+  }
+}
+.btn-info-account{
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: space-between;
+}
