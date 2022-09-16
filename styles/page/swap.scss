@@ -1,0 +1,18 @@
+.page-swap{
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 350px);
+  .swap-container{
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 32px 0;
+    width: 100%;
+  }
+}
+.popover-swap-search{
+  width: 320px;
+  box-shadow: '0px 8px 24px rgba(13, 38, 52, 0.08), 0px 2px 6px rgba(25, 62, 74, 0.16)';
+  .popover-swap-content{
+  
+  }
+}

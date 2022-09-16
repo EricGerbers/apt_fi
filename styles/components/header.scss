@@ -37,6 +37,23 @@
     text-decoration: none;
     font-size: 12px;
     font-weight: 500;
+    position: relative;
+    &:before{
+      height: 1px;
+      content: '';
+      background-color: $text-primary;
+      width: 100%;
+      bottom: -8px;
+      left: 0;
+      right: 0;
+      display: none;
+      position: absolute;
+    }
+    &.active{
+      &:before{
+        display: block;
+      }
+    }
     &:hover{
       color: $text-primary;
       svg{

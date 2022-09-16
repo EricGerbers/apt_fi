@@ -1,24 +1,27 @@
+import { useRouter } from "next/router"
 import { MenuPool } from "../../icons/MenuPool"
 import { MenuStaking } from "../../icons/MenuStaking"
 import { MenuSwap } from "../../icons/MenuSwap"
 import { MenuTrade } from "../../icons/MenuTrade"
 import { ButtonConnect } from "../ButtonConnect"
+import cx from 'classnames'
 
 export const Header = () => {
+  const {pathname} = useRouter();
   return (
     <div className="container header">
       <div><img src='./logo.svg' /></div>
       <div className="nav">
-        <a className="nav-item" href='/trade'>
+        <a className={cx('nav-item', pathname === '/trade' && 'active')} href='/trade'>
           <MenuTrade /> Trade
         </a>
-        <a className="nav-item" href='/swap'>
+        <a className={cx('nav-item', pathname === '/swap' && 'active')} href='/swap'>
           <MenuSwap /> Swap
         </a>
-        <a className="nav-item" href='/stake'>
+        <a className={cx('nav-item', pathname === '/stake' && 'active')} href='/stake'>
           <MenuStaking /> Staking
         </a>
-        <a className="nav-item" href='/pool'>
+        <a className={cx('nav-item', pathname === '/pool' && 'active')} href='/pool'>
           <MenuPool /> Pool & Farm
         </a>
       </div>

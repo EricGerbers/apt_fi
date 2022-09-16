@@ -144,3 +144,25 @@ p{
     height: 100%;
   }
 }
+.page-404{
+  min-height: calc(100vh - 340px);
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 1024px){
+    min-height: calc(100vh - 350px);
+  }
+  @media (max-width: 767px){
+    min-height: 350px;
+  }
+  p{
+    font-size: 50px;
+  }
+}
+
+.popover-overlay{
+  background-color: transparent !important;
+}
+.popover-container{
+  padding: 8px;
+  z-index: 3000;
+}
