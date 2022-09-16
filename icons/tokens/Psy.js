@@ -44,8 +44,8 @@ export const Psy = () => {
           gradientUnits='userSpaceOnUse'
           gradientTransform='rotate(119.745 12.045 13.005) scale(30.2335)'
         >
-          <stop stop-color='#D43F7C'></stop>
-          <stop offset='1' stop-color='#2D4CC3'></stop>
+          <stop stopColor='#D43F7C'></stop>
+          <stop offset='1' stopColor='#2D4CC3'></stop>
         </radialGradient>
         <radialGradient
           id='psyfinance_svg__paint1_radial_11006_279'
@@ -55,8 +55,8 @@ export const Psy = () => {
           gradientUnits='userSpaceOnUse'
           gradientTransform='rotate(119.745 12.045 13.005) scale(30.2335)'
         >
-          <stop stop-color='#D43F7C'></stop>
-          <stop offset='1' stop-color='#2D4CC3'></stop>
+          <stop stopColor='#D43F7C'></stop>
+          <stop offset='1' stopColor='#2D4CC3'></stop>
         </radialGradient>
         <radialGradient
           id='psyfinance_svg__paint2_radial_11006_279'
@@ -66,8 +66,8 @@ export const Psy = () => {
           gradientUnits='userSpaceOnUse'
           gradientTransform='rotate(119.745 12.045 13.005) scale(30.2335)'
         >
-          <stop stop-color='#D43F7C'></stop>
-          <stop offset='1' stop-color='#2D4CC3'></stop>
+          <stop stopColor='#D43F7C'></stop>
+          <stop offset='1' stopColor='#2D4CC3'></stop>
         </radialGradient>
         <radialGradient
           id='psyfinance_svg__paint3_radial_11006_279'
@@ -77,8 +77,8 @@ export const Psy = () => {
           gradientUnits='userSpaceOnUse'
           gradientTransform='rotate(119.745 12.045 13.005) scale(30.2335)'
         >
-          <stop stop-color='#D43F7C'></stop>
-          <stop offset='1' stop-color='#2D4CC3'></stop>
+          <stop stopColor='#D43F7C'></stop>
+          <stop offset='1' stopColor='#2D4CC3'></stop>
         </radialGradient>
         <radialGradient
           id='psyfinance_svg__paint4_radial_11006_279'
@@ -88,8 +88,8 @@ export const Psy = () => {
           gradientUnits='userSpaceOnUse'
           gradientTransform='rotate(119.745 12.045 13.005) scale(30.2335)'
         >
-          <stop stop-color='#D43F7C'></stop>
-          <stop offset='1' stop-color='#2D4CC3'></stop>
+          <stop stopColor='#D43F7C'></stop>
+          <stop offset='1' stopColor='#2D4CC3'></stop>
         </radialGradient>
         <radialGradient
           id='psyfinance_svg__paint5_radial_11006_279'
@@ -99,8 +99,8 @@ export const Psy = () => {
           gradientUnits='userSpaceOnUse'
           gradientTransform='rotate(119.745 12.045 13.005) scale(30.2335)'
         >
-          <stop stop-color='#D43F7C'></stop>
-          <stop offset='1' stop-color='#2D4CC3'></stop>
+          <stop stopColor='#D43F7C'></stop>
+          <stop offset='1' stopColor='#2D4CC3'></stop>
         </radialGradient>
       </defs>
     </svg>

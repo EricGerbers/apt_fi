@@ -63,6 +63,9 @@ export const dataLiquidity = [
     EarnToken3Amount: "",
     Enabled: true,
     loaded: false,
+    totalValueLockedInUsd: 513045.09361479443,
+totalApr: 23.989191292448535,
+totalApy: 27.101159435243428,
     apyDescription: "Displayed APY is based on the current swap fees and current rewards compounded daily."
   },
   {

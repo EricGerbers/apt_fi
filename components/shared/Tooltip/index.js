@@ -1,6 +1,6 @@
 import cx from 'classnames'
 import { motion } from 'framer-motion'
-import { Fragment, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { usePopper } from 'react-popper'
 
 import { Portal } from '../Portal'
@@ -21,7 +21,7 @@ export const Tooltip = ({
   const [visible, setVisible] = useState(propVisible || false)
   const [refElement, setRefElement] = useState(null)
   const [popperElement, setPopperElement] = useState(null)
-
+  const [checkDocument, setCheckDocument] = useState(false)
   const { styles, attributes } = usePopper(refElement, popperElement, {
     placement,
     modifiers: [...(modifiers || [])],
@@ -34,8 +34,17 @@ export const Tooltip = ({
     onVisibleChange?.(v)
   }
 
+  useEffect(() => {
+    if(typeof window.document !== 'undefined' && !checkDocument){
+      setCheckDocument(true)
+    }
+  }, [checkDocument])
+
+  if(!checkDocument){
+    return <div></div>
+  }
   return (
-    <Fragment>
+    <>
       <div
         ref={setRefElement}
         className={cx(className)}
@@ -56,16 +65,12 @@ export const Tooltip = ({
             style={{ ...styles.popper, zIndex }}
             {...attributes.popper}
           >
-            <div
-              className={cx(
-                'tooltip-content',
-              )}
-            >
+            <div className='tooltip-content'>
               {content}
             </div>
           </motion.div>
         </Portal>
       )}
-    </Fragment>
+    </>
   )
 }

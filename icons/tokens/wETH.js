@@ -32,8 +32,8 @@ export const WETH = () => {
         fill='#fff'
       ></path>
       <path
-        fill-rule='evenodd'
-        clip-rule='evenodd'
+        fillRule='evenodd'
+        clipRule='evenodd'
         d='M5.517 14.991l-1.316-3.964h1.153l.686 2.277.76-2.288h.938l.76 2.288.686-2.277h1.13L8.998 14.99h-.95l-.793-2.266-.788 2.266h-.95zm5.23-.028v-3.936h3.166v.928h-2.087v.596h1.89v.86h-1.89v.624h2.115v.928h-3.194zm4.712 0v-2.98h-1.18v-.956h3.452v.956h-1.18v2.98h-1.092zm2.75 0v-3.936H19.3V12.5h1.4v-1.473h1.091v3.936h-1.09v-1.496h-1.4v1.496h-1.092z'
         fill='#000'
       ></path>

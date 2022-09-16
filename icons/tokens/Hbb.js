@@ -24,9 +24,9 @@ export const Hbb = () => {
           y2='-0.825'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#F0F'></stop>
-          <stop offset='0.463' stop-color='#7A84FF'></stop>
-          <stop offset='1' stop-color='#05FAFF'></stop>
+          <stop stopColor='#F0F'></stop>
+          <stop offset='0.463' stopColor='#7A84FF'></stop>
+          <stop offset='1' stopColor='#05FAFF'></stop>
         </linearGradient>
       </defs>
     </svg>
