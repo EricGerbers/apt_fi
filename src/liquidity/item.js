@@ -10,8 +10,12 @@ export const LiquidityItem = ({item}) => {
         <div className="card-header">
           <div className="card-info">
             <div className="card-token">
-              <div className="card-token-img-left">{getPoolIcon(item.PoolLeftToken)}</div>
-              <div className="card-token-img-right">{getPoolIcon(item.PoolRightToken)}</div>                      
+              <div className="card-token-img-left">
+                <img src={getPoolIcon(item.PoolLeftToken)} />
+              </div>
+              <div className="card-token-img-right">
+                <img src={getPoolIcon(item.PoolRightToken)} />
+              </div>                      
               {item.PoolLeftToken}{!!item.PoolRightToken ? ` - ${item.PoolRightToken}` : ''}
             </div>
             <div className="card-price">
@@ -26,7 +30,9 @@ export const LiquidityItem = ({item}) => {
           </div>
           <div className="card-project">
             <Tooltip content={item.Project} placement='bottom'>
-              <span>{getPoolIcon(item.Project)}</span>
+              <span>
+                <img src={getPoolIcon(item.Project)} />
+              </span>
             </Tooltip>
           </div>
         </div>
@@ -45,8 +51,8 @@ const PoolTooltip = ({item}) => {
       {
         !!item.EarnToken1Amount.trim() && !!item.EarnToken2Amount.trim() && (
           <div className="pool-symbol-container">          
-            <div className="pool-symbol">{getPoolIcon(item.EarnToken1Symbol)} ≈ {item.EarnToken1Amount} {item.EarnToken1Symbol}/day rewards</div>
-            <div className="pool-symbol">{getPoolIcon(item.EarnToken2Symbol)} ≈ {item.EarnToken2Amount} {item.EarnToken2Symbol}/day rewards</div>
+            <div className="pool-symbol"><img src={getPoolIcon(item.EarnToken1Symbol)} /> ≈ {item.EarnToken1Amount} {item.EarnToken1Symbol}/day rewards</div>
+            <div className="pool-symbol"><img src={getPoolIcon(item.EarnToken2Symbol)} /> ≈ {item.EarnToken2Amount} {item.EarnToken2Symbol}/day rewards</div>
           </div>
         )
       }

@@ -10,7 +10,7 @@ export const Header = () => {
   const {pathname} = useRouter();
   return (
     <div className="container header">
-      <div><img src='./logo.svg' /></div>
+      <div><a href='/'><img src='./logo.svg' /></a></div>
       <div className="nav">
         <a className={cx('nav-item', pathname === '/trade' && 'active')} href='/trade'>
           <MenuTrade /> Trade
@@ -26,7 +26,7 @@ export const Header = () => {
         </a>
       </div>
       <div>
-        <ButtonConnect />
+        <ButtonConnect isInitData={true}/>
       </div>
     </div>
   )

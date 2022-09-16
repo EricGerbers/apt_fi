@@ -7,7 +7,7 @@ import Head from 'next/head'
 
 const WrappedApp = ({ Component, pageProps }) => {
   return (
-    <>
+    <div className='root'>
       <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no' />
       </Head>
@@ -22,7 +22,7 @@ const WrappedApp = ({ Component, pageProps }) => {
         closeButton={false}
       />
         <div id="modal-root"></div>
-    </>
+    </div>
   )
 }
 

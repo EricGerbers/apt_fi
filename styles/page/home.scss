@@ -1,7 +1,9 @@
 @import '../variables.scss';
 
 .home-banner{
-  min-height: calc(100vh - 160px);
+  flex: 1;
+  padding-top: 30px;
+  padding-bottom: 30px;
   .banner-left{
     display: flex;
     flex-direction: column;

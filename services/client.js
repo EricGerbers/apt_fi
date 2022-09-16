@@ -7,6 +7,6 @@ const authInstance = axios.create({
 export default authInstance
 
 
-export const getPrice = () => {
-  return authInstance.get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum-wormhole&vs_currencies=usd')
+export const getPrice = (ids) => {
+  return authInstance.get(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`)
 }

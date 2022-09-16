@@ -15,9 +15,9 @@ const typeTag = `0x1::coin::CoinStore<${APTOS_COIN}>`;
       // if(!isConnected){
       //   return
       // }   
-
+const client = new AptosClient(NODE_URL);
       
-export const useAptos = () => {  
+export const useAptos = (isInitData = false) => {  
   const [address, setAddress] = useState(null)
   const [connected, setConnected] = useState(false)
   const [balance, setBalance] = useState('0')
@@ -26,11 +26,11 @@ export const useAptos = () => {
     const result = await window.aptos.isConnected()
     if(result){
       setConnected(true)
-      initData()
+      isInitData && initData()
     }
   }
-  const getBalance = async (balanceAdd) => {
-      const client = new AptosClient(NODE_URL);
+  const getBalance = async (balanceAdd) => {      
+    console.log('balanceAdd', balanceAdd)
       const resources = await client.getAccountResources(balanceAdd)      
       const account = resources.find(item => item.type === typeTag)
       return !!account?.data?.coin?.value ? account.data.coin.value : '0'
@@ -68,6 +68,7 @@ export const useAptos = () => {
   const initData = async () => {
     try {
       const data = await window.aptos.account()
+      console.log('d', data)
       const currentBalance = await getBalance(data.address)
       setBalance(currentBalance)
       setAddress(data.address)

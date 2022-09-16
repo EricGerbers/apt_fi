@@ -3,7 +3,8 @@ import { motion } from 'framer-motion'
 import { uniqueId } from 'lodash'
 import { useRef } from 'react'
 
-import { Overlay, Portal } from '../index'
+import { Overlay} from '../Overlay'
+import {Portal} from '../Portal'
 
 const getModalRoot = () => {
   const id = 'modal-root'

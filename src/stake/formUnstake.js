@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Input } from "../../components/shared/Form/Input"
-import { Sol, STSol } from "../../icons/tokens"
+import { STSol } from "../../icons/tokens/stSol"
 import { Button } from "../../components/shared/Form/Button"
 import { Tooltip } from "../../components/shared/Tooltip"
 import {useAptos} from '../../hooks/useAptos'

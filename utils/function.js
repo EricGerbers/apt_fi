@@ -1,5 +1,3 @@
-import { Apricot, Atrix, Francium, Hbb, Katana, Larix, Mer, Orca, Port, Psy, Ray, Rin, Sny, Sol, Solend, STSol, Usdc, Usdh, Usdt, WBTC, WETH, WHETH, WLDO, WSTETH } from '../icons/tokens'
-
 export const stringToHex = (text) => {
   const encoder = new TextEncoder();
   const encoded = encoder.encode(text);
@@ -23,37 +21,44 @@ export const currencyFormat = (num, toFixed = 0) => {
 
 export const getPoolIcon = (type) => {
   switch(type){
-    case 'stSOL': { return <STSol /> }
+    case 'stSOL': { return './images/tokens/stsol.svg' }
     case 'Hubble':
-    case 'HBB': { return <Hbb /> }
+    case 'HBB': { return './images/tokens/hbb.svg' }
     case 'Mercurial':
-    case 'MER': { return <Mer /> }
+    case 'MER': { return './images/tokens/mer.svg' }
     case 'Orca':
     case 'Orca Whirlpool':
-    case 'ORCA': { return <Orca /> }
+    case 'ORCA': { return './images/tokens/orca.svg' }
     case 'Raydium':
-    case 'RAY': { return <Ray /> }
+    case 'RAY': { return './images/tokens/ray.svg' }
     case 'Aldrin':
-    case 'RIN': { return <Rin /> }
+    case 'RIN': { return './images/tokens/rin.svg' }
     case 'Synthetify':
-    case 'SNY': { return <Sny /> }
-    case 'SOL': { return <Sol /> }
-    case 'USDC': { return <Usdc /> }
-    case 'USDH': { return <Usdh /> }
-    case 'USDT': { return <Usdt /> }
-    case 'wBTC': { return <WBTC /> }
-    case 'wETH': { return <WETH /> }
-    case 'whETH': { return <WHETH /> }
-    case 'wLDO': { return <WLDO /> }
-    case 'wstETH': { return <WSTETH /> }      
-    case 'Katana': { return <Katana />}
-    case 'Psy Finance': { return <Psy />}
-    case 'Apricot': { return <Apricot />}
-    case 'Francium': { return <Francium />}
-    case 'Port': { return <Port />}
-    case 'Larix': {return <Larix />}
-    case 'Solend': {return <Solend />}
-    case 'Atrix': {return <Atrix />}
+    case 'SNY': { return './images/tokens/sny.svg' }
+    case 'SOL': { return './images/tokens/sol.svg' }
+    case 'USDC': { return './images/tokens/usdc.svg' }
+    case 'USDH': { return './images/tokens/usdh.svg' }
+    case 'USDT': { return './images/tokens/usdt.svg' }
+    case 'wBTC': { return './images/tokens/wbtc.svg' }    
+    case 'wETH': { return './images/tokens/weth.svg' }
+    case 'ETH':
+    case 'whETH': { return './images/tokens/wheth.svg' }
+    case 'wLDO': { return './images/tokens/wldo.svg' }
+    case 'wstETH': { return './images/tokens/wsteth.svg' }      
+    case 'Katana': { return './images/tokens/katana.svg'}
+    case 'Psy Finance': { return './images/tokens/psy.svg'}
+    case 'Apricot': { return './images/tokens/apricot.svg'}
+    case 'Francium': { return './images/tokens/francium.svg'}
+    case 'PORT':
+    case 'Port': { return './images/tokens/port.svg'}
+    case 'LARIX':
+    case 'Larix': {return './images/tokens/larix.svg'}
+    case 'SLND':
+    case 'Solend': {return './images/tokens/solend.svg'}
+    case 'Atrix': {return './images/tokens/atrix.svg'}
+    case 'BTC': {return './images/tokens/btc.svg' }
+    case 'NEAR': { return './images/tokens/near.svg'}
+    case 'mSOL': { return './images/tokens/mSol.png' }
     default: return null
   }
 }

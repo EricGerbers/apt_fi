@@ -1,23 +1,74 @@
 import { useState } from "react"
+import cx from 'classnames'
+import { motion } from 'framer-motion'
+import {Input} from '../../components/shared/Form/Input'
+import { Button } from '../../components/shared/Form/Button'
+import { Popover  } from "../../components/shared/Popover"
+import { PopoverContent } from '../../components/shared/Popover/PopoverContent'
+import {dataSwap} from '../../data/swap'
+import { getPoolIcon } from "../../utils/function"
 
 export const PopoverSearch = ({onSelect}) => {
   const [keyword, setKeyword] = useState('')
+  const [visible, setVisible] = useState(false)
+  const [from, setFrom] = useState(null)
 
+  const getFirstSearch = () => {
+    const newList = dataSwap.find(item => item.name.toLowerCase().includes(keyword.toLowerCase()))
+    return newList
+  }
+
+  const handleSelectSearch = (item) => {
+    console.log('item', item)
+    onSelect({
+      from,
+      to: item
+    })
+  }
   const renderContent = (onClose) => {
+    if(keyword === ''){
+      return null
+    }
+    const firstSearch = getFirstSearch()
+    if(!firstSearch){
+      return null
+    }
+    setFrom(firstSearch)
+    const listAutoComplete = []
+    let total = 0
+    dataSwap.forEach((item) => {
+      if(total < 5 && item.id !== firstSearch.id){
+        listAutoComplete.push(item)
+        total++
+      }
+    })
     return (
-      <div
-        className='popover-swap-content'
-        onClick={() => {
-          // onDelete()
-          onClose()
-        }}
-      >
-
+      <div className='popover-swap-content'>
+      {
+        listAutoComplete.map(item => (
+          <div
+            className="swap-autocomplete"
+            onClick={() => {
+              handleSelectSearch(item)
+              onClose()
+            }}
+          >    
+            <div className="autocomplete-left">
+              <img src={getPoolIcon(firstSearch.name)} />
+              <img src={getPoolIcon(item.name)} />
+            </div>
+            <div className="autocomplete-right">
+              <div className="autocomplete-name">{firstSearch.name} - {item.name}</div>
+              <div className="autocomplete-desc">{firstSearch.desc} - {item.desc}</div>
+            </div>
+          </div>
+        ))
+      }
       </div>
     )
   }
   return (
-    <div className="swap-search">          
+    <div className="swap-search">        
       <Popover
         placement='bottom'
         onVisibleChange={setVisible}
