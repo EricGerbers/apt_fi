@@ -1,0 +1,162 @@
+.page-stake{
+  display: block;
+  .stake-header{
+    text-align: center;
+    margin-bottom: 40px;
+    h1{
+      margin: 0 0 6px;
+      font-size: 30px;
+    }
+    p{
+      margin: 0;
+      font-size: 16px;
+    }
+  }
+  .list-segments{
+    max-width: 240px;
+    margin: 0 auto;
+    display: flex;
+    background-color: rgb(226, 230, 235);
+    border-radius: 20px;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 20px;
+    .segment-indicator{
+      position: absolute;
+      width: 120px;
+      // left: 2px;
+      top: 2px;
+      bottom: 2px;
+      background-color: #fff;
+      z-index: 10;
+      border-radius: 20px;
+      transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+      &.right{
+        left: inherit;
+        right: 2px;
+      }
+    }
+    .segment-item{
+      flex: 0 1 50%;
+      width: 50%;
+      text-align: center;
+      padding: 0 6px;
+      height: 44px;
+      line-height: 44px;
+      font-size: 14px;
+      z-index: 100;
+      opacity: 0.5;
+      cursor: pointer;
+      &.active{
+        cursor: default;
+        opacity: 1;
+      }
+    }
+  }
+  .content-form{
+    max-width: 480px;
+    margin: 0 auto;
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 32px;
+    margin-bottom: 30px;
+    @media (max-width: 568px){
+      padding: 16px;
+    }
+    h5{
+      font-size: 16px;
+      margin: 0 0 5px;
+      font-weight: 500;
+    }
+    .btn-stake-max{
+      background-color: $text-primary;
+      color: #fff
+    }
+    .btn-form-amount{
+      margin: 40px 0;
+      width: 100%;
+    }
+    .form-stake-error{
+      margin-top: 8px;
+      font-size: 14px;
+    }
+  }
+  .form-pool-note{
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 16px;
+    @media (max-width: 480px){
+      flex-direction: column;
+    }
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  .form-pool-note__label{
+   display: flex;
+   gap: 10px;   
+   i{
+    cursor: pointer;
+   }
+  }
+  .container-info-stake{
+    max-width: 480px;
+    margin: 0 auto;
+    .stake-info-header{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    h5{
+      font-size: 18px;
+      margin: 0;
+      font-weight: 700;
+    }
+    a{
+      font-size: 13px;
+      color: $text-primary;
+    }
+  }
+  .faq-list{
+    margin-bottom: 30px;
+  }
+  .faq-content{
+    padding-bottom: 22px;
+    margin-bottom: 10px;    
+    .faq-title{
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    .faq-description{
+      p{
+        font-size: 12px;
+        margin-bottom: 10px;
+        line-height: 1.6;
+      }
+    }
+  }
+  .form-pool-quote{
+    display: flex;    
+    gap: 10px;
+    margin-top: 16px;
+    background-color: rgba(0, 163, 255, 0.063);
+    color: rgb(0, 163, 255);
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    i{
+      color: #000
+    }
+  }
+}
+.stake-tooltip{
+  width: 240px;
+  color: #fff;
+  font-size: 12px;
+}

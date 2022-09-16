@@ -3,7 +3,6 @@ import { MenuStaking } from "../../icons/MenuStaking"
 import { MenuSwap } from "../../icons/MenuSwap"
 import { MenuTrade } from "../../icons/MenuTrade"
 import { ButtonConnect } from "../ButtonConnect"
-import { Button } from "../shared/Form/Button"
 
 export const Header = () => {
   return (
@@ -13,13 +12,13 @@ export const Header = () => {
         <a className="nav-item" href='/trade'>
           <MenuTrade /> Trade
         </a>
-        <a className="nav-item" href='/trade'>
+        <a className="nav-item" href='/swap'>
           <MenuSwap /> Swap
         </a>
-        <a className="nav-item" href='/trade'>
+        <a className="nav-item" href='/stake'>
           <MenuStaking /> Staking
         </a>
-        <a className="nav-item" href='/trade'>
+        <a className="nav-item" href='/pool'>
           <MenuPool /> Pool & Farm
         </a>
       </div>

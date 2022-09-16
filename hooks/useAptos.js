@@ -66,8 +66,7 @@ export const useAptos = () => {
     }    
   }
   const initData = async () => {
-    try {      
-                     
+    try {
       const data = await window.aptos.account()
       const currentBalance = await getBalance(data.address)
       setBalance(currentBalance)

@@ -1,7 +1,4 @@
-import { Button } from "../../components/shared/Form/Button"
 import { dataLiquidity } from "../../data/liquidity"
-import { currencyFormat } from "../../utils/function"
-import {Tooltip} from '../../components/shared/Tooltip'
 import { LiquidityItem } from "./item"
 
 export const LiquidityContainer = () => {  

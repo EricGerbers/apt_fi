@@ -19,7 +19,7 @@ body{
   height: 100%;
   -webkit-font-smoothing: antialiased;
   overflow: scroll;
-  background: $bg-body;
+  background: rgb(244, 246, 248);
   font-family: 'Inter', sans-serif;
 }
 .container{
@@ -91,4 +91,56 @@ p{
 .btn-connect-account{
   display: flex;
   gap: 10px;
+}
+.form-input{
+  position: relative;
+  display: block;
+  width: 100%;
+  font-size: 14px;  
+  .form-input__container{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    input{
+      border: 1px solid rgb(209, 216, 223);
+      border-radius: 8px;
+      background-color: #fff;
+      width: 100%;
+      height: 48px;
+      padding: 4px 12px;
+      &:focus{
+        border-color: $text-primary;
+      }
+      &.error{
+        border-color: #FA0101
+      }
+      &.has-prefix{
+        padding-left: 48px;
+      }
+    }
+  }
+  .form-input__error{
+    display: inline-flex;
+    gap: 8px;
+    position: absolute;
+    right: 8px;
+    align-items: center;
+  }
+  .form-input__suffix{    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .form-input__prefix{
+    position: absolute;
+    left: 1px;
+    right: 1px;
+    bottom: 1px;
+    width: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
 }

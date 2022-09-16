@@ -17,7 +17,7 @@ export const LiquidityItem = ({item}) => {
             <div className="card-price">
               <span>{!!item.totalApr ? item.totalApr.toFixed(2) : 0}%APT</span>
               <Tooltip content={<PoolTooltip item={item}/>} placement="right">
-                <i class="bi bi-info-circle"></i>
+                <i className="bi bi-info-circle"></i>
               </Tooltip>
             </div>
             <div className="card-price-usd">
@@ -31,8 +31,8 @@ export const LiquidityItem = ({item}) => {
           </div>
         </div>
         <div className="card-bottom">
-          <Button className='button-primary'>Supply <i class="bi bi-box-arrow-up-right"></i></Button>
-          <Button className='button-ternary'>Swap <i class="bi bi-box-arrow-up-right"></i></Button>
+          <Button className='button-primary'>Supply <i className="bi bi-box-arrow-up-right"></i></Button>
+          <Button className='button-ternary'>Swap <i className="bi bi-box-arrow-up-right"></i></Button>
         </div>             
       </div>
     </div>
