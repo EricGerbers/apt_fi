@@ -30,7 +30,6 @@ export const FormSwap = ({ token, onSelectToken, onChangeAmount, amount }) => {
     alert('submit')
   }
 
-  console.log('amount', amount)
   return (
     <>
       <div className='container-form-swap'>

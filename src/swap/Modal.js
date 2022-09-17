@@ -25,7 +25,7 @@ export const ModalSelectToken = ({ onClose, onSelect, ...props }) => {
         </div>
         <div className='modal-swap__recent'>
           {dataSwapRecent.map((item) => (
-            <div className='recent-item' onClick={() => handleSelectToken(item)}>
+            <div className='recent-item' onClick={() => handleSelectToken(item)} key={`recent-${item.id}`}>
               <img src={getPoolIcon(item.name)} width={20} />
               <span>{item.name}</span>
             </div>
@@ -34,9 +34,9 @@ export const ModalSelectToken = ({ onClose, onSelect, ...props }) => {
         <div className='modal-swap__result'>
           {resultSearch.length > 0 &&
             resultSearch.map((item) => (
-              <div className='result-item' onClick={() => handleSelectToken(item)}>
+              <div className='result-item' onClick={() => handleSelectToken(item)} key={`search-${item.id}`}>
                 <img src={getPoolIcon(item.name)} width={40} />
-                <div class='result_info'>
+                <div className='result_info'>
                   <span className='result-name'>{item.name}</span>
                   <span className='result-desc'>{item.desc}</span>
                 </div>

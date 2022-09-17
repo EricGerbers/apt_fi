@@ -1,10 +1,6 @@
 import { useState } from 'react';
-import cx from 'classnames';
-import { motion } from 'framer-motion';
 import { Input } from '../../components/shared/Form/Input';
-import { Button } from '../../components/shared/Form/Button';
 import { Popover } from '../../components/shared/Popover';
-import { PopoverContent } from '../../components/shared/Popover/PopoverContent';
 import { dataSwap } from '../../data/swap';
 import { getPoolIcon } from '../../utils/function';
 
@@ -18,8 +14,10 @@ export const PopoverSearch = ({ onSelect }) => {
     return newList;
   };
 
+  const handleVisibleChange = (status) => {
+    setVisible(status)
+  }
   const handleSelectSearch = (item) => {
-    console.log('item', item);
     onSelect({
       from,
       to: item,
@@ -51,6 +49,7 @@ export const PopoverSearch = ({ onSelect }) => {
               handleSelectSearch(item);
               onClose();
             }}
+            key={item.id}
           >
             <div className='autocomplete-left'>
               <img src={getPoolIcon(firstSearch.name)} />
@@ -73,7 +72,7 @@ export const PopoverSearch = ({ onSelect }) => {
     <div className='swap-search'>
       <Popover
         placement='bottom'
-        onVisibleChange={setVisible}
+        onVisibleChange={handleVisibleChange}
         visible={visible}
         content={(onClose) => (
           <Popover.Content onClose={onClose} className='popover-swap-search'>

@@ -26,9 +26,12 @@ body{
   padding: 0px 10rem;
   margin: 0 auto;
   width: 100%;
-  display: flex;
+  display: flex;  
   @media (max-width: 1200px){
     padding: 0 32px;
+  }
+  @media (max-width: 767px){
+    padding: 0 16px;
   }
 }
 .row{
