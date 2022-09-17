@@ -1,21 +1,21 @@
-import cx from 'classnames'
-import { motion } from 'framer-motion'
-import { uniqueId } from 'lodash'
-import { useRef } from 'react'
+import cx from 'classnames';
+import { motion } from 'framer-motion';
+import { uniqueId } from 'lodash';
+import { useRef } from 'react';
 
-import { Overlay} from '../Overlay'
-import {Portal} from '../Portal'
+import { Overlay } from '../Overlay';
+import { Portal } from '../Portal';
 
 const getModalRoot = () => {
-  const id = 'modal-root'
-  let modalRoot = document.getElementById(id)
+  const id = 'modal-root';
+  let modalRoot = document.getElementById(id);
   if (!modalRoot) {
-    const div = document.createElement('div')
-    div.id = id
-    modalRoot = div
+    const div = document.createElement('div');
+    div.id = id;
+    modalRoot = div;
   }
-  return modalRoot
-}
+  return modalRoot;
+};
 
 export const Modal = ({
   onClose,
@@ -27,16 +27,16 @@ export const Modal = ({
   overlayZIndex,
   children,
 }) => {
-  const modalIdRef = useRef(uniqueId('modal-'))
+  const modalIdRef = useRef(uniqueId('modal-'));
 
-  const handleClose = event => {
-    const selection = window.getSelection()
+  const handleClose = (event) => {
+    const selection = window.getSelection();
     if (selection?.toString() !== '') {
-      return
+      return;
     }
-    const target = event.target
-    target.id === modalIdRef.current && onClose()
-  }
+    const target = event.target;
+    target.id === modalIdRef.current && onClose();
+  };
 
   return (
     <Portal popupContainer={getModalRoot}>
@@ -52,22 +52,11 @@ export const Modal = ({
           transition={{ duration: 0.2, delay: 0 }}
           onAnimationComplete={onAnimateComplete}
           onClick={handleClose}
-          className={cx(
-            'modal-container',
-            wrapperClassName,
-          )}
+          className={cx('modal-container', wrapperClassName)}
         >
-          <div
-            className={cx(
-              'modal-content',
-              rounded !== false && 'rounded',
-              className,
-            )}
-          >
-            {children}
-          </div>
+          <div className={cx('modal-content', rounded !== false && 'rounded', className)}>{children}</div>
         </motion.div>
       </Overlay>
     </Portal>
-  )
-}
+  );
+};

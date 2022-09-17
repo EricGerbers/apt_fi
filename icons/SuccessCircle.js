@@ -1,13 +1,6 @@
 export const SuccesCircle = (props) => {
   return (
-    <svg
-      width='14'
-      height='14'
-      viewBox='0 0 14 14'
-      xmlns='http://www.w3.org/2000/svg'
-      fill='currentColor'
-      {...props}
-    >
+    <svg width='14' height='14' viewBox='0 0 14 14' xmlns='http://www.w3.org/2000/svg' fill='currentColor' {...props}>
       <path
         d='M7 0C3.1402 0 0 3.1402 0 7C0 10.8598 3.1402 14 7 14C10.8598 14 14 10.8598 14 7C14 3.1402 10.8598 0 7 0Z'
         fill='currentColor'
@@ -17,5 +10,5 @@ export const SuccesCircle = (props) => {
         fill='white'
       />
     </svg>
-  )
-}
+  );
+};

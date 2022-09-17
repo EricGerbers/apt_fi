@@ -1,17 +1,7 @@
 export const WarningCircle = (props) => {
   return (
-    <svg
-      width='16'
-      height='15'
-      viewBox='0 0 16 15'
-      xmlns='http://www.w3.org/2000/svg'
-      fill='currentColor'
-      {...props}
-    >
-      <path
-        d='M6 1.5L8 0.5L9.5 1L15.5 11L15 13L13.5 14H3L1 13L0.5 11L6 1.5Z'
-        fill='currentColor'
-      />
+    <svg width='16' height='15' viewBox='0 0 16 15' xmlns='http://www.w3.org/2000/svg' fill='currentColor' {...props}>
+      <path d='M6 1.5L8 0.5L9.5 1L15.5 11L15 13L13.5 14H3L1 13L0.5 11L6 1.5Z' fill='currentColor' />
       <path
         d='M7.99981 10.2783C7.5525 10.2783 7.17755 10.6532 7.17755 11.1005C7.17755 11.5478 7.5525 11.9228 7.99981 11.9228C8.43067 11.9228 8.82206 11.5478 8.80233 11.1203C8.82206 10.6499 8.4504 10.2783 7.99981 10.2783Z'
         fill='white'
@@ -25,5 +15,5 @@ export const WarningCircle = (props) => {
         fill='white'
       />
     </svg>
-  )
-}
+  );
+};

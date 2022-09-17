@@ -1,0 +1,12 @@
+node_modules/
+.pnp/
+.pnp.js
+.pnpm-store/
+coverage/
+build/
+dist/
+.next/
+pnpm-*.yaml
+yarn-error.log
+next.config.js
+static/

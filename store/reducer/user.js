@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { HYDRATE } from "next-redux-wrapper";
+import { HYDRATE } from 'next-redux-wrapper';
 
 const initialState = {
-  address: '',  
-  isConnected: false
+  address: '',
+  isConnected: false,
 };
 const user = createSlice({
   name: 'user',

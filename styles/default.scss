@@ -53,6 +53,10 @@ button{
   border: none;
   cursor: pointer;
   background-color: transparent;
+  &:disabled{
+    opacity: 0.7;
+    cursor: default;
+  }
 }
 .button-primary{
   background-color: $text-primary;

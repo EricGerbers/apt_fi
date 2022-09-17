@@ -1,43 +1,39 @@
-import cx from 'classnames'
-import { AnimatePresence, motion } from 'framer-motion'
-import { useState } from 'react'
-import { usePopper } from 'react-popper'
+import cx from 'classnames';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useState } from 'react';
+import { usePopper } from 'react-popper';
 
-import { Overlay } from '../Overlay'
-import { Portal } from '../Portal'
-import { PopoverContent } from './PopoverContent'
+import { Overlay } from '../Overlay';
+import { Portal } from '../Portal';
+import { PopoverContent } from './PopoverContent';
 
-
-
-export const getTransformOrigin = (
-  placement,
-) => {
+export const getTransformOrigin = (placement) => {
   if (placement === 'top') {
-    return '50% 100%'
+    return '50% 100%';
   }
   if (placement === 'bottom') {
-    return '50% 0%'
+    return '50% 0%';
   }
   if (placement === 'bottom-start') {
-    return '0% 0%'
+    return '0% 0%';
   }
   if (placement === 'bottom-end') {
-    return '100% 0%'
+    return '100% 0%';
   }
   if (placement === 'right-start') {
-    return '0% 0%'
+    return '0% 0%';
   }
   if (placement === 'right-end') {
-    return '0% 100%'
+    return '0% 100%';
   }
   if (placement === 'left') {
-    return '100% 50%'
+    return '100% 50%';
   }
   if (placement === 'left-start') {
-    return '100% 0%'
+    return '100% 0%';
   }
-  return '50% 50%'
-}
+  return '50% 50%';
+};
 
 const Popover = ({
   visible: propVisible,
@@ -51,29 +47,24 @@ const Popover = ({
   zIndex,
   children,
 }) => {
-  const [visible, setVisible] = useState(propVisible || false)
-  const [refElement, setRefElement] = useState(null)
-  const [popperElement, setPopperElement] = useState(null)
+  const [visible, setVisible] = useState(propVisible || false);
+  const [refElement, setRefElement] = useState(null);
+  const [popperElement, setPopperElement] = useState(null);
 
   const { styles, attributes } = usePopper(refElement, popperElement, {
     placement,
-  })
+  });
 
   const toggleVisible = (v) => {
-    setVisible(v)
-    onVisibleChange?.(v)
-  }
+    setVisible(v);
+    onVisibleChange?.(v);
+  };
 
-  const onClose = () => toggleVisible(false)
+  const onClose = () => toggleVisible(false);
 
   return (
     <>
-      <div
-        ref={setRefElement}
-        className={cx(className)}
-        onClick={() => toggleVisible(true)}
-        style={style}
-      >
+      <div ref={setRefElement} className={cx(className)} onClick={() => toggleVisible(true)} style={style}>
         {children}
       </div>
       <AnimatePresence initial={false}>
@@ -92,11 +83,7 @@ const Popover = ({
                 exit={{ scale: 0, opacity: 0 }}
                 transition={{ duration: 0.2 }}
                 style={{
-                  transformOrigin: getTransformOrigin(
-                    attributes?.popper?.[
-                      'data-popper-placement'
-                    ],
-                  ),
+                  transformOrigin: getTransformOrigin(attributes?.popper?.['data-popper-placement']),
                 }}
               >
                 {typeof content === 'function' ? (
@@ -110,8 +97,8 @@ const Popover = ({
         )}
       </AnimatePresence>
     </>
-  )
-}
+  );
+};
 
-Popover.Content = PopoverContent
-export { Popover }
+Popover.Content = PopoverContent;
+export { Popover };

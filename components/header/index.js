@@ -1,18 +1,22 @@
-import { useRouter } from "next/router"
-import { MenuPool } from "../../icons/MenuPool"
-import { MenuStaking } from "../../icons/MenuStaking"
-import { MenuSwap } from "../../icons/MenuSwap"
-import { MenuTrade } from "../../icons/MenuTrade"
-import { ButtonConnect } from "../ButtonConnect"
-import cx from 'classnames'
-
+import { useRouter } from 'next/router';
+import { MenuPool } from '../../icons/MenuPool';
+import { MenuStaking } from '../../icons/MenuStaking';
+import { MenuSwap } from '../../icons/MenuSwap';
+import { MenuTrade } from '../../icons/MenuTrade';
+import { ButtonConnect } from '../ButtonConnect';
+import cx from 'classnames';
+import React from 'react'
 export const Header = () => {
-  const {pathname} = useRouter();
+  const { pathname } = useRouter();
   return (
-    <div className="container header">
-      <div><a href='/'><img src='./logo.svg' /></a></div>
-      <div className="nav">
-        <a className={cx('nav-item', pathname === '/trade' && 'active')} href='/trade'>
+    <div className='container header'>
+      <div>
+        <a href='/'>
+          <img src='./logo.svg' />
+        </a>
+      </div>
+      <div className='nav'>
+        <a className={cx('nav-item', pathname === '/liquidity' && 'active')} href='/liquidity'>
           <MenuTrade /> Trade
         </a>
         <a className={cx('nav-item', pathname === '/swap' && 'active')} href='/swap'>
@@ -26,8 +30,8 @@ export const Header = () => {
         </a>
       </div>
       <div>
-        <ButtonConnect isInitData={true}/>
+        <ButtonConnect isInitData={true} />
       </div>
     </div>
-  )
-}
+  );
+};

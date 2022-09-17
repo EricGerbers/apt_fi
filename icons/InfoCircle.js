@@ -36,5 +36,5 @@ export const InfoCircle = (props) => {
         <rect width='16' height='16' fill='currentColor' />
       </g>
     </svg>
-  )
-}
+  );
+};

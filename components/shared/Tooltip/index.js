@@ -1,10 +1,9 @@
-import cx from 'classnames'
-import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
-import { usePopper } from 'react-popper'
+import cx from 'classnames';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { usePopper } from 'react-popper';
 
-import { Portal } from '../Portal'
-
+import { Portal } from '../Portal';
 
 export const Tooltip = ({
   children,
@@ -18,30 +17,30 @@ export const Tooltip = ({
   modifiers = [],
   zIndex,
 }) => {
-  const [visible, setVisible] = useState(propVisible || false)
-  const [refElement, setRefElement] = useState(null)
-  const [popperElement, setPopperElement] = useState(null)
-  const [checkDocument, setCheckDocument] = useState(false)
+  const [visible, setVisible] = useState(propVisible || false);
+  const [refElement, setRefElement] = useState(null);
+  const [popperElement, setPopperElement] = useState(null);
+  const [checkDocument, setCheckDocument] = useState(false);
   const { styles, attributes } = usePopper(refElement, popperElement, {
     placement,
     modifiers: [...(modifiers || [])],
-  })
+  });
 
   const toggleVisible = (v) => {
     if (propVisible === undefined) {
-      setVisible(v)
+      setVisible(v);
     }
-    onVisibleChange?.(v)
-  }
+    onVisibleChange?.(v);
+  };
 
   useEffect(() => {
-    if(typeof window.document !== 'undefined' && !checkDocument){
-      setCheckDocument(true)
+    if (typeof window.document !== 'undefined' && !checkDocument) {
+      setCheckDocument(true);
     }
-  }, [checkDocument])
+  }, [checkDocument]);
 
-  if(!checkDocument){
-    return <div></div>
+  if (!checkDocument) {
+    return <div></div>;
   }
   return (
     <>
@@ -65,12 +64,10 @@ export const Tooltip = ({
             style={{ ...styles.popper, zIndex }}
             {...attributes.popper}
           >
-            <div className='tooltip-content'>
-              {content}
-            </div>
+            <div className='tooltip-content'>{content}</div>
           </motion.div>
         </Portal>
       )}
     </>
-  )
-}
+  );
+};

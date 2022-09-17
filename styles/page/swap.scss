@@ -17,7 +17,7 @@
       display: flex;
       justify-content: flex-end;
       margin-bottom: 20px;
-      span{
+      .btn-percent{
         background-color: rgb(236, 236, 242);
         color: rgb(130, 129, 156);
         border-radius: 16px;
@@ -26,6 +26,7 @@
         display: inline-flex;
         gap: 6px;
         font-weight: 600;
+        cursor: pointer;
       }
     }
     .form-swap__content{
@@ -38,6 +39,9 @@
       display: flex;
       justify-content: space-between;
       margin-bottom: 20px;
+      label{
+        color: rgb(169, 169, 178)
+      }
       .form-header__max{
         display: inline-flex;
         gap: 4px;
@@ -95,6 +99,19 @@
         transform: translate(-50%, -50%);        
       }
     }
+    .form-input_to{
+      display: flex;
+      flex-direction: column;
+      span{
+        color: rgb(169, 169, 178);
+      }
+    }
+    .form-swap__submit{
+      margin-top: 20px;
+      button{
+        width: 100%;
+      }
+    }
   }
 }
 .popover-swap-search{
@@ -127,6 +144,62 @@
     .autocomplete-desc{
       margin-top: 2px;
       color: rgb(63, 63, 80);
+    }
+  }
+}
+.modal-swap{
+  max-width: 380px;
+  width: 100%;
+  padding-top: 30px;
+  .modal-swap__search{
+    margin-bottom: 20px;
+  }
+  .modal-swap__recent{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 12px;
+    row-gap: 8px;
+    align-items: center;
+    .recent-item{
+      background-color: rgb(236, 236, 242);
+      padding: 8px 10px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      gap: 4px;
+      font-weight: 600;
+    }
+  }
+  .modal-swap__result{
+    height: 480px;
+    overflow-y: scroll;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    @media (max-width: 1024px){
+      height: calc(100vh - 400px);
+      min-height: 80px;
+    }
+    .result-item{
+      background-color: rgb(236, 236, 242);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .result_info{
+      display: flex;
+      flex-direction: column;
+      gap:4px;
+      font-size: 13px;
+    }
+    .result-name{
+      font-size: 15px;
+      font-weight: 600;
     }
   }
 }

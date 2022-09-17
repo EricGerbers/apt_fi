@@ -1,29 +1,24 @@
-import { createPortal } from 'react-dom'
+import { createPortal } from 'react-dom';
 
 export const getPopupContainer = (selector) => {
   // if(typeof document === 'undefined'){
   //   return null
   // }
-  let node = null
+  let node = null;
   if (typeof selector === 'string') {
-    node = document?.querySelector(selector)
+    node = document?.querySelector(selector);
   } else {
-    node = selector()
+    node = selector();
   }
-  if(node){
-    return node
+  if (node) {
+    return node;
   }
-  return document.body
-}
+  return document.body;
+};
 
 export const Portal = ({ children, popupContainer }) => {
   // if(typeof document === 'undefined'){
   //   return null
   // }
-  return createPortal(
-    children,
-    popupContainer
-      ? getPopupContainer(popupContainer)
-      : document.body,
-  )
-}
+  return createPortal(children, popupContainer ? getPopupContainer(popupContainer) : document.body);
+};
