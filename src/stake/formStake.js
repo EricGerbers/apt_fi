@@ -32,7 +32,7 @@ export const FormStake = () => {
         prefixIcon={<Sol />}
         placeholder='Amount'
         suffix={
-          <Button className='btn-stake-max' disable={!connected} onClick={handleSetMax}>
+          <Button className='btn-stake-max' disabled={(!connected)} onClick={handleSetMax}>
             Max
           </Button>
         }
