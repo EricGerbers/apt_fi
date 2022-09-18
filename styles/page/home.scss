@@ -4,6 +4,7 @@
   flex: 1;
   padding-top: 30px;
   padding-bottom: 30px;
+  min-height: calc(100vh - 140px);
   .banner-left{
     display: flex;
     flex-direction: column;

@@ -178,3 +178,15 @@ p{
   flex-direction: column;
   min-height: 100vh;
 }
+.popover-logout{
+  width: 140px;
+  background-color: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  .link-logout{
+    color:  #FA0101;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}

@@ -2,6 +2,7 @@ import { AptosClient } from 'aptos';
 import { useEffect, useState } from 'react';
 import { NODE_URL, TYPE_TAG } from '../utils/constants';
 import toast from '../utils/toast';
+import {convertAmountFromRawNumber, formatFixedDecimals, divide} from '../utils/bignumber'
 
 // const faucetClient = new FaucetClient(NODE_URL, FAUCET_URL, null);
 // const cointClient = new CoinClient(client)
@@ -17,6 +18,9 @@ export const useAptos = (isInitData = false) => {
   const [balance, setBalance] = useState('0');
 
   const firstCheckConnect = async () => {
+    if(!window?.aptos){
+      return
+    }
     const result = await window.aptos.isConnected();
     if (result) {
       setConnected(true);
@@ -24,9 +28,14 @@ export const useAptos = (isInitData = false) => {
     }
   };
   const getBalance = async (balanceAdd) => {
-    const resources = await client.getAccountResources(balanceAdd);
-    const account = resources.find((item) => item.type === TYPE_TAG);
-    return !!account?.data?.coin?.value ? account.data.coin.value : '0';
+    try {
+      const resources = await client.getAccountResources(balanceAdd);
+      const account = resources.find((item) => item.type === TYPE_TAG);
+      return !!account?.data?.coin?.value ? formatFixedDecimals(convertAmountFromRawNumber(account.data.coin.value, 8),6) : '0';
+    } catch (error) {
+      toast.error({ title: error.message, description: error.errors });
+      return error
+    }
   };
   const resetInfo = () => {
     setAddress(null);
@@ -34,6 +43,9 @@ export const useAptos = (isInitData = false) => {
     setBalance('0');
   };
   const disconnect = async () => {
+    if(!window?.aptos){
+      return
+    }
     try {
       await window.aptos.disconnect();
       toast.success({ title: 'Logout' });
@@ -43,7 +55,11 @@ export const useAptos = (isInitData = false) => {
       return error;
     }
   };
-  const connect = async () => {
+  const connect = async () => {    
+    if(!window?.aptos){
+      toast.error({ title: 'Please install wallet extension' });
+      return
+    }
     const result = await window.aptos.isConnected();
     if (result) {
       return;
@@ -69,8 +85,8 @@ export const useAptos = (isInitData = false) => {
       return error;
     }
   };
-  useEffect(() => {
-    firstCheckConnect();
+  useEffect(() => {    
+    firstCheckConnect();    
   }, []);
   return {
     address,

@@ -7,7 +7,7 @@ import { StakeFAQ } from './faq';
 import { FormUnStake } from './formUnstake';
 
 export const StakeContainer = () => {
-  const [segment, setSegment] = useState('unstake');
+  const [segment, setSegment] = useState('stake');
   return (
     <div className='page-stake container'>
       <div className='stake-header'>
