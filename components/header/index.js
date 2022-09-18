@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
-import { MenuPool } from '../../icons/MenuPool';
+// import { MenuPool } from '../../icons/MenuPool';
 import { MenuStaking } from '../../icons/MenuStaking';
 import { MenuSwap } from '../../icons/MenuSwap';
-import { MenuTrade } from '../../icons/MenuTrade';
+import { MenuLiquidity } from '../../icons/MenuTrade';
 import { ButtonConnect } from '../ButtonConnect';
 import cx from 'classnames';
 import React from 'react'
@@ -16,18 +16,18 @@ export const Header = () => {
         </a>
       </div>
       <div className='nav'>
-        <a className={cx('nav-item', pathname === '/liquidity' && 'active')} href='/liquidity'>
-          <MenuTrade /> Trade
+        <a className={cx('nav-item', pathname === '/stake' && 'active')} href='/stake'>
+          <MenuStaking /> Staking
         </a>
         <a className={cx('nav-item', pathname === '/swap' && 'active')} href='/swap'>
           <MenuSwap /> Swap
         </a>
-        <a className={cx('nav-item', pathname === '/stake' && 'active')} href='/stake'>
-          <MenuStaking /> Staking
+        <a className={cx('nav-item', pathname === '/liquidity' && 'active')} href='/liquidity'>
+          <MenuLiquidity /> Liquidity
         </a>
-        <a className={cx('nav-item', pathname === '/pool' && 'active')} href='/pool'>
+        {/* <a className={cx('nav-item', pathname === '/pool' && 'active')} href='/pool'>
           <MenuPool /> Pool & Farm
-        </a>
+        </a> */}
       </div>
       <div>
         <ButtonConnect isInitData={true} />
