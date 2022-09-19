@@ -1,5 +1,8 @@
 import '../styles/index.scss';
 import React from 'react'
+import {Provider} from 'redux'
+import { store, wrapper } from '../store/store'
+import withRedux from 'next-redux-wrapper';
 
 import { ToastContainer } from 'react-toastify';
 import { Header } from '../components/header';
@@ -21,4 +24,4 @@ const WrappedApp = ({ Component, pageProps }) => {
   );
 };
 
-export default WrappedApp;
+export default withRedux(store)(WrappedApp)

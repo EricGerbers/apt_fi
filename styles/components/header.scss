@@ -5,6 +5,9 @@
   justify-content: space-between;
   align-items: center;
   min-height: 64px;
+  .header-logo{
+    cursor: pointer;
+  }
   @media (max-width: 1024px){
     flex-wrap: wrap;
     margin: 20px 0;
@@ -39,6 +42,7 @@
     font-size: 12px;
     font-weight: 500;
     position: relative;
+    cursor: pointer;
     &:before{
       height: 1px;
       content: '';

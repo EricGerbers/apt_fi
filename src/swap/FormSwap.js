@@ -6,9 +6,11 @@ import { dataSwap } from '../../data/swap';
 import {ButtonConnect} from '../../components/ButtonConnect'
 import { useAptos } from '../../hooks/useAptos';
 import { Button } from '../../components/shared/Form/Button';
+import {useSelector} from 'react-redux'
 
 export const FormSwap = ({ token, onSelectToken, onChangeAmount, amount }) => {
-  const { connect, connected } = useAptos(false);
+  const { connect } = useAptos(false);
+  const {connected} = useSelector(s => s.account)
   const [toggleSwap, setToggleSwap] = useState(false);
   const [modalOpen, setModalOpen] = useState('');
   const handleChangeFrom = (e, type) => {

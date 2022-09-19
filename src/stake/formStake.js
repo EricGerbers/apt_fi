@@ -5,11 +5,14 @@ import { Button } from '../../components/shared/Form/Button';
 import { Tooltip } from '../../components/shared/Tooltip';
 import { useAptos } from '../../hooks/useAptos';
 import { FormTooltip } from './';
+import {useSelector} from 'react-redux'
 
 export const FormStake = () => {
   const [amount, setAmount] = useState(0);
   const [error, setError] = useState('');
-  const { connect, connected, balance } = useAptos(true);
+  const { connect } = useAptos(true);
+  const stateAccount = useSelector(store => store.account)
+  const {connected, balance} = stateAccount
   const handleSubmit = () => {
     if (amount === 0 || amount === '') {
       setError('Please input amount');
@@ -19,6 +22,7 @@ export const FormStake = () => {
   const handleSetMax = () => {
     setAmount(balance);
   };
+
   return (
     <div>
       <h5>Stake</h5>

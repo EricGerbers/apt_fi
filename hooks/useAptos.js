@@ -2,7 +2,9 @@ import { AptosClient } from 'aptos';
 import { useEffect, useState } from 'react';
 import { NODE_URL, TYPE_TAG } from '../utils/constants';
 import toast from '../utils/toast';
-import {convertAmountFromRawNumber, formatFixedDecimals, divide} from '../utils/bignumber'
+import {convertAmountFromRawNumber, formatFixedDecimals} from '../utils/bignumber'
+import {useSelector, useDispatch} from 'react-redux'
+import {updateAccount} from '../store/account/action'
 
 // const faucetClient = new FaucetClient(NODE_URL, FAUCET_URL, null);
 // const cointClient = new CoinClient(client)
@@ -14,16 +16,20 @@ const client = new AptosClient(NODE_URL);
 
 export const useAptos = (isInitData = false) => {
   const [address, setAddress] = useState(null);
-  const [connected, setConnected] = useState(false);
-  const [balance, setBalance] = useState('0');
-
+  const stateAccount = useSelector(state => state.account)
+  const dispatch = useDispatch()
   const firstCheckConnect = async () => {
     if(!window?.aptos){
       return
     }
+    if(stateAccount.connected){
+      return
+    }
     const result = await window.aptos.isConnected();
     if (result) {
-      setConnected(true);
+      dispatch(updateAccount({
+        connected: true
+      }))
       isInitData && initData();
     }
   };
@@ -39,8 +45,6 @@ export const useAptos = (isInitData = false) => {
   };
   const resetInfo = () => {
     setAddress(null);
-    setConnected(false);
-    setBalance('0');
   };
   const disconnect = async () => {
     if(!window?.aptos){
@@ -50,6 +54,11 @@ export const useAptos = (isInitData = false) => {
       await window.aptos.disconnect();
       toast.success({ title: 'Logout' });
       resetInfo();
+      dispatch(updateAccount({
+        connected: false,
+        balance: 0,
+        address: ''
+      }))
     } catch (error) {
       toast.error({ title: error.message, description: error.errors });
       return error;
@@ -60,6 +69,9 @@ export const useAptos = (isInitData = false) => {
       toast.error({ title: 'Please install wallet extension' });
       return
     }
+    if(stateAccount.connected){
+      return
+    }
     const result = await window.aptos.isConnected();
     if (result) {
       return;
@@ -67,7 +79,9 @@ export const useAptos = (isInitData = false) => {
     try {
       await window.aptos.connect();
       await initData();
-      setConnected(true);
+      dispatch(updateAccount({
+        connected: true
+      }))
       toast.success({ title: 'Login' });
     } catch (error) {
       toast.error({ title: error.message, description: error.errors });
@@ -78,8 +92,10 @@ export const useAptos = (isInitData = false) => {
     try {
       const data = await window.aptos.account();
       const currentBalance = await getBalance(data.address);
-      setBalance(currentBalance);
-      setAddress(data.address);
+      dispatch(updateAccount({
+        balance: currentBalance,
+        address: data.address
+      }))
     } catch (error) {
       toast.error({ title: error.message, description: error.errors });
       return error;
@@ -90,9 +106,7 @@ export const useAptos = (isInitData = false) => {
   }, []);
   return {
     address,
-    connected,
     connect,
-    balance,
     disconnect,
   };
 };

@@ -1,4 +1,6 @@
 import { useRouter } from 'next/router';
+import Link from 'next/link'
+
 // import { MenuPool } from '../../icons/MenuPool';
 import { MenuStaking } from '../../icons/MenuStaking';
 import { MenuSwap } from '../../icons/MenuSwap';
@@ -10,21 +12,21 @@ export const Header = () => {
   const { pathname } = useRouter();
   return (
     <div className='container header'>
-      <div>
-        <a href='/'>
+      <div className='header-logo'>
+        <Link href={{pathname: '/'}}>
           <img src='./logo.svg' />
-        </a>
+        </Link>
       </div>
       <div className='nav'>
-        <a className={cx('nav-item', pathname === '/stake' && 'active')} href='/stake'>
-          <MenuStaking /> Staking
-        </a>
-        <a className={cx('nav-item', pathname === '/swap' && 'active')} href='/swap'>
-          <MenuSwap /> Swap
-        </a>
-        <a className={cx('nav-item', pathname === '/liquidity' && 'active')} href='/liquidity'>
-          <MenuLiquidity /> Liquidity
-        </a>
+        <Link  href={{pathname: '/stake'}}>
+          <span className={cx('nav-item', pathname === '/stake' && 'active')}><MenuStaking /> Staking</span>
+        </Link>
+        <Link href={{pathname: '/swap'}}>
+          <span className={cx('nav-item', pathname === '/swap' && 'active')}><MenuSwap /> Swap</span>
+        </Link>
+        <Link  href={{pathname: '/liquidity'}}>
+          <span className={cx('nav-item', pathname === '/liquidity' && 'active')}><MenuLiquidity /> Liquidity</span>
+        </Link>
         {/* <a className={cx('nav-item', pathname === '/pool' && 'active')} href='/pool'>
           <MenuPool /> Pool & Farm
         </a> */}

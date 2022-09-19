@@ -3,10 +3,13 @@ import { useAptos } from '../hooks/useAptos';
 import { splitAddress } from '../utils/function';
 import {Popover} from '../components/shared/Popover'
 import { PopoverContent } from './shared/Popover/PopoverContent'
+import {useSelector} from 'react-redux'
 
 export const ButtonConnect = ({ isInitData = false }) => {
-  const { connect, connected, address, balance, disconnect } = useAptos(isInitData);
-  if (connected) {
+  const { connect, disconnect } = useAptos(isInitData);
+  const stateAccount = useSelector(state => state.account)
+
+  if (stateAccount.connected) {
     return (
       <Popover
         placement='bottom'
@@ -19,8 +22,8 @@ export const ButtonConnect = ({ isInitData = false }) => {
         )}
       >
         <Button className='button-primary btn-info-account'>
-          <p>{balance} APT</p>
-          <p>{splitAddress(address)}</p>
+          <p>{stateAccount.balance} APT</p>
+          <p>{splitAddress(stateAccount.address)}</p>
         </Button>
       </Popover>
     );
