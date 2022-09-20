@@ -3,14 +3,13 @@ import { Input } from '../../components/shared/Form/Input';
 import { STSol } from '../../icons/tokens/stSol';
 import { Button } from '../../components/shared/Form/Button';
 import { Tooltip } from '../../components/shared/Tooltip';
-import { useAptos } from '../../hooks/useAptos';
 import { FormTooltip } from '.';
 import {useSelector} from 'react-redux'
+import { ButtonOnlyConnect } from '../../components/ButtonOnlyConnect';
 
 export const FormUnStake = () => {
   const [amount, setAmount] = useState(0);
   const [error, setError] = useState('');
-  const { connect } = useAptos(true);
   const {connected, balance} = useSelector(store => store.account)
   const handleSubmit = () => {
     if (amount === 0 || amount === '') {
@@ -45,9 +44,9 @@ export const FormUnStake = () => {
           Submit
         </Button>
       ) : (
-        <Button className='button-primary btn-form-amount' onClick={connect}>
+        <ButtonOnlyConnect className='button-primary btn-form-amount'>
           Connect Wallet
-        </Button>
+        </ButtonOnlyConnect>
       )}
       <div className='form-pool-note'>
         <div className='form-pool-note__label'>

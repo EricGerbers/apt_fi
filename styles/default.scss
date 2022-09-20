@@ -190,3 +190,21 @@ p{
     cursor: pointer;
   }
 }
+.modal-wallet{
+  width: 360px;
+  .wallet-list{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .wallet-list-item{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    span{
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+}
