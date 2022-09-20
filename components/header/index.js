@@ -32,7 +32,7 @@ export const Header = () => {
         </a> */}
       </div>
       <div>
-        <ButtonConnect isInitData={true} />
+        <ButtonConnect />
       </div>
     </div>
   );

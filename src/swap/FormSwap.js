@@ -3,13 +3,11 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { ModalSelectToken } from './Modal';
 import { dataSwap } from '../../data/swap';
-import {ButtonConnect} from '../../components/ButtonConnect'
-import { useAptos } from '../../hooks/useAptos';
 import { Button } from '../../components/shared/Form/Button';
 import {useSelector} from 'react-redux'
+import { ButtonOnlyConnect } from '../../components/ButtonOnlyConnect';
 
 export const FormSwap = ({ token, onSelectToken, onChangeAmount, amount }) => {
-  const { connect } = useAptos(false);
   const {connected} = useSelector(s => s.account)
   const [toggleSwap, setToggleSwap] = useState(false);
   const [modalOpen, setModalOpen] = useState('');
@@ -95,9 +93,9 @@ export const FormSwap = ({ token, onSelectToken, onChangeAmount, amount }) => {
               Submit
             </Button>
           ) : (
-            <Button className='button-primary btn-form-amount' onClick={connect}>
+            <ButtonOnlyConnect className='button-primary btn-form-amount'>
               Connect Wallet
-            </Button>
+            </ButtonOnlyConnect>
           )}
         </div>
       </div>

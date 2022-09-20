@@ -3,7 +3,8 @@ import { accountActionType } from './action'
 const accountState = {
   connected: false,
   balance: 0,
-  address: ''
+  address: '',
+  type: '',
 }
 
 export default function reducer(state = accountState, action) {
