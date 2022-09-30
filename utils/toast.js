@@ -80,6 +80,7 @@ const _toast = (message, config) => {
 
 const genToast = (type) => {
   return (message, config) => {
+    console.log('message', message)
     return _toast(message, { ...config, type });
   };
 };
