@@ -4,13 +4,11 @@ import { useState } from 'react';
 import { ModalSelectToken } from './Modal';
 import { dataSwap } from '../../data/swap';
 import {ButtonConnect} from '../../components/ButtonConnect'
-import { useAptos } from '../../hooks/useAptos';
 import { Button } from '../../components/shared/Form/Button';
-import {useSelector} from 'react-redux'
+import { useWeb3React } from '@web3-react/core';
 
 export const FormSwap = ({ token, onSelectToken, onChangeAmount, amount }) => {
-  const { connect } = useAptos(false);
-  const {connected} = useSelector(s => s.account)
+  const { active } = useWeb3React()
   const [toggleSwap, setToggleSwap] = useState(false);
   const [modalOpen, setModalOpen] = useState('');
   const handleChangeFrom = (e, type) => {
@@ -90,14 +88,12 @@ export const FormSwap = ({ token, onSelectToken, onChangeAmount, amount }) => {
           </div>
         </div>
         <div className='form-swap__submit'>
-          {connected ? (
+          {active ? (
             <Button className='button-primary btn-form-amount' onClick={handleSubmit} disabled={!amount.from}>
               Submit
             </Button>
           ) : (
-            <Button className='button-primary btn-form-amount' onClick={connect}>
-              Connect Wallet
-            </Button>
+            <ButtonConnect showInfo={false}/>
           )}
         </div>
       </div>

@@ -98,6 +98,7 @@ p{
 .btn-connect-account{
   display: flex;
   gap: 10px;
+  justify-content: center;
 }
 .form-input{
   position: relative;
@@ -187,6 +188,19 @@ p{
     color:  #FA0101;
     font-size: 16px;
     font-weight: 600;
+    cursor: pointer;
+  }
+}
+.modal-login{
+  .modal-title{
+    font-size: 26px;
+    margin: 0 0 16px;
+  }
+  .modal-icon-login{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 16px;
     cursor: pointer;
   }
 }

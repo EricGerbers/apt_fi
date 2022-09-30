@@ -3,14 +3,15 @@ import { Input } from '../../components/shared/Form/Input';
 import { STSol } from '../../icons/tokens/stSol';
 import { Button } from '../../components/shared/Form/Button';
 import { Tooltip } from '../../components/shared/Tooltip';
-import { useAptos } from '../../hooks/useAptos';
 import { FormTooltip } from '.';
 import {useSelector} from 'react-redux'
+import { ButtonConnect } from '../../components/ButtonConnect';
+import { useWeb3React } from '@web3-react/core';
 
 export const FormUnStake = () => {
   const [amount, setAmount] = useState(0);
   const [error, setError] = useState('');
-  const { connect } = useAptos(true);
+  const { active } = useWeb3React()
   const {connected, balance} = useSelector(store => store.account)
   const handleSubmit = () => {
     if (amount === 0 || amount === '') {
@@ -40,14 +41,14 @@ export const FormUnStake = () => {
         }
       />
       {error !== '' && <div className='text-red-900 form-stake-error'>{error}</div>}
-      {connected ? (
+      {active ? (
         <Button className='button-primary btn-form-amount' onClick={handleSubmit}>
           Submit
         </Button>
       ) : (
-        <Button className='button-primary btn-form-amount' onClick={connect}>
-          Connect Wallet
-        </Button>
+        <div className='btn-form-amount'>
+          <ButtonConnect showInfo={false}/>
+        </div>
       )}
       <div className='form-pool-note'>
         <div className='form-pool-note__label'>
